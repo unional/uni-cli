@@ -9,7 +9,7 @@
       "**/@unional/devpkg-*",
       "**/jest",
       "**/tslint",
-      "**/dependency-check"
+      "**/typescript"
     ]
   }
 }
