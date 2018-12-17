@@ -1,6 +1,6 @@
 {
   "name": "@unional/devpkg-node",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Development package for NodeJS development",
   "homepage": "https://github.com/unional/uni-cli",
   "bugs": {
