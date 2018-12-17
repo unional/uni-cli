@@ -3,6 +3,9 @@ import path from 'path';
 import { dirSync } from 'tmp';
 import { initializeFolder } from '.';
 import t from 'assert'
+import { promisify } from 'util';
+import { exec } from 'child_process';
+import { getRepositoryName, getRemote, isGitRepo } from '../git';
 
 test('copy LICENSE', async () => {
   const tmp = dirSync()
@@ -30,4 +33,20 @@ test('copy README.md', async () => {
   t(actual.indexOf(`# dummy-pkg`) === 0)
   t(actual.indexOf(`Description for \`dummy-pkg\``) > 0)
   t(actual.indexOf(`https://circleci.com/gh/user/dummy/tree/master.svg?style=shield`) > 0)
+})
+
+const execp = promisify(exec)
+
+test('will add remote if input.noRemote is true', async () => {
+  const tmp = dirSync()
+  await execp('git init', { cwd: tmp.name })
+  await initializeFolder({ repository: 'user/dummy', noRemote: true }, tmp.name)
+  const actual = getRepositoryName(getRemote(tmp.name))
+  t.strictEqual(actual, 'user/dummy')
+})
+
+test('will do git init if the repo is not a git repo', async () => {
+  const tmp = dirSync()
+  await initializeFolder({ isGitRepo: false }, tmp.name)
+  t.strictEqual(await isGitRepo(tmp.name), true)
 })

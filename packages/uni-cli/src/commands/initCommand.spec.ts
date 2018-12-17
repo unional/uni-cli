@@ -1,8 +1,9 @@
-import t from 'assert';
+import a from 'assertron';
 import { setupCliCommandTest } from 'clibuilder';
 import { initCommand } from './initCommand';
+import { some } from 'satisfier';
 
-test('install @unional/dev as dev dependency', async () => {
+describe('assert installed dependencies', () => {
   const { cmd, args, argv } = setupCliCommandTest(initCommand, [])
 
   cmd.getInputs = () => Promise.resolve({})
@@ -14,6 +15,14 @@ test('install @unional/dev as dev dependency', async () => {
     return Promise.resolve()
   }
 
-  await cmd.run(args, argv)
-  t.deepStrictEqual(actualPackages!, ['@unional/devpkg-node'])
+  beforeAll(async () => {
+    await cmd.run(args, argv)
+  })
+
+  test('install @unional/dev as dev dependency', async () => {
+    a.satisfy(actualPackages, some('@unional/devpkg-node'))
+  })
+  test('install assertron as dev dependency directly so that it can be importable by TS', async () => {
+    a.satisfy(actualPackages, some('assertron'))
+  })
 })
