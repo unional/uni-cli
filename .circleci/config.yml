@@ -58,7 +58,7 @@ jobs:
       - run: cd packages/uni-cli && npx codecov
       # - run: cd packages/uni-cli && npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - store_test_results:
-          path: .reports/junit
+          path: packages/uni-cli/.reports/junit
   node10:
     docker:
       - image: 'circleci/node:9'
@@ -68,7 +68,7 @@ jobs:
           at: '.'
       - run: cd packages/uni-cli && npm run verify:ci
       - store_test_results:
-          path: .reports/junit
+          path: packages/uni-cli/.reports/junit
   node9:
     docker:
       - image: 'circleci/node:9'
@@ -78,7 +78,7 @@ jobs:
           at: '.'
       - run: cd packages/uni-cli && npm run verify:ci
       - store_test_results:
-          path: .reports/junit
+          path: packages/uni-cli/.reports/junit
   node8:
     docker:
       - image: 'circleci/node:8'
@@ -88,7 +88,7 @@ jobs:
           at: '.'
       - run: cd packages/uni-cli && npm run verify:ci
       - store_test_results:
-          path: .reports/junit
+          path: packages/uni-cli/.reports/junit
   release:
     docker:
       - image: circleci/node:11
