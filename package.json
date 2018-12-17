@@ -7,7 +7,9 @@
     ],
     "nohoist": [
       "**/@unional/devpkg-*",
+      "**/greenkeeper-lockfile-update",
       "**/jest",
+      "**/semantic-release",
       "**/tslint",
       "**/typescript"
     ]
