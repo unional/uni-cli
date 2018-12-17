@@ -5,6 +5,7 @@ import { initCommand } from './initCommand';
 test('install @unional/dev as dev dependency', async () => {
   const { cmd, args, argv } = setupCliCommandTest(initCommand, [])
 
+  cmd.getInputs = () => Promise.resolve({})
   cmd.copyArtifacts = () => Promise.resolve()
   cmd.initializeFolder = () => Promise.resolve()
   let actualPackages: string[]

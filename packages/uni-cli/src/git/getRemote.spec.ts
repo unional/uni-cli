@@ -11,7 +11,7 @@ test('Return the remote url', () => {
     cp.execSync('git init')
     cp.execSync('git remote add origin https://github.com/unional/global-store.git')
     const actual = getRemote()
-    t.strictEqual(actual, 'https://github.com/unional/global-store.git')
+    t(/unional\/global-store/.test(actual!))
   }
   finally {
     process.chdir(cwd)
