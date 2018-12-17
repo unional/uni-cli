@@ -2,7 +2,9 @@ import { readFile, writeFile } from 'fs'
 import { promisify } from 'util';
 import path from 'path'
 import R from 'ramda'
+import { exec } from 'child_process';
 
+const execp = promisify(exec)
 const readFilep = promisify(readFile)
 const writeFilep = promisify(writeFile)
 
@@ -29,6 +31,14 @@ export async function initializeFolder(inputs: any, cwd = process.cwd()) {
       R.pick(['name', 'repository'], inputs)
     )
   )
+
+  if (!inputs.isGitRepo) {
+    await execp(`git init`, { cwd })
+  }
+
+  if (inputs.noRemote) {
+    await execp(`git remote add origin https://github.com/${inputs.repository}.git`, { cwd })
+  }
 }
 
 async function readTemplates() {

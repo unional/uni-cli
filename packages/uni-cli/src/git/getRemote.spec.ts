@@ -4,44 +4,22 @@ import { dirSync } from 'tmp'
 import cp from 'child_process'
 
 test('Return the remote url', () => {
-  const tmpdir = dirSync()
-  const cwd = process.cwd()
-  try {
-    process.chdir(tmpdir.name)
-    cp.execSync('git init')
-    cp.execSync('git remote add origin https://github.com/unional/global-store.git')
-    const actual = getRemote()
-    t(/unional\/global-store/.test(actual!))
-  }
-  finally {
-    process.chdir(cwd)
-  }
+  const tmp = dirSync()
+  cp.execSync('git init', { cwd: tmp.name })
+  cp.execSync('git remote add origin https://github.com/unional/global-store.git', { cwd: tmp.name })
+  const actual = getRemote(tmp.name)
+  t(/unional\/global-store/.test(actual!))
 })
 
 test('return undefined if not a git repo', () => {
-  const tmpdir = dirSync()
-  const cwd = process.cwd()
-  try {
-    process.chdir(tmpdir.name)
-    const actual = getRemote()
-    t.strictEqual(actual, undefined)
-  }
-  finally {
-    process.chdir(cwd)
-  }
+  const tmp = dirSync()
+  const actual = getRemote(tmp.name)
+  t.strictEqual(actual, undefined)
 })
 
-
 test('return undefined if no remote', () => {
-  const tmpdir = dirSync()
-  const cwd = process.cwd()
-  try {
-    process.chdir(tmpdir.name)
-    cp.execSync('git init')
-    const actual = getRemote()
-    t.strictEqual(actual, undefined)
-  }
-  finally {
-    process.chdir(cwd)
-  }
+  const tmp = dirSync()
+  cp.execSync('git init', { cwd: tmp.name })
+  const actual = getRemote(tmp.name)
+  t.strictEqual(actual, undefined)
 })

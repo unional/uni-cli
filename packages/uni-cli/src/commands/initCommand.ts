@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import { CliCommand } from 'clibuilder';
 import { copyArtifacts } from '../devpkg-io';
-import { getRemote, getRepositoryName } from '../git';
+import { getRemote, getRepositoryName, isGitRepo } from '../git';
 import { getConfig } from '../git/getConfig';
 import { initializeFolder } from '../io';
 import { installDev } from '../npm';
@@ -25,18 +25,21 @@ export const initCommand = {
   installDev,
   async run(args) {
     const inputs = await this.getInputs(args)
+
     this.ui.info('Initializing folder...')
     await this.initializeFolder(inputs)
 
     this.ui.info('Installing @unional/devpkg-node')
-    await this.installDev('@unional/devpkg-node')
+    await this.installDev('@unional/devpkg-node', 'assertron')
 
     this.ui.info('Copying files...')
     await this.copyArtifacts('@unional/devpkg-node', 'simple')
 
-    this.ui.info('Ready!')
+    this.ui.info(`Ready!`)
+    this.ui.info(``)
+    this.ui.info(`Remember to update your package description in package.json and README.md`)
   },
-  async getInputs(args: any) {
+  async getInputs(args: { name?: string, repo?: string }) {
     const inputs: any = { year: new Date().getFullYear() }
     const questions: inquirer.Question<inquirer.Answers>[] = []
     if (args.name) {
@@ -52,8 +55,14 @@ export const initCommand = {
       inputs.repo = args.repo
     }
     else {
-      const repo = inputs.repository = getRepositoryName(getRemote())
-      if (!repo) {
+      inputs.isGitRepo = isGitRepo()
+      if (inputs.isGitRepo) {
+        const repo = inputs.repository = getRepositoryName(getRemote())
+        if (!repo) {
+          inputs.noRemote = true
+        }
+      }
+      if (!inputs.isGitRepo || inputs.noRemote) {
         questions.push({
           name: 'repository',
           message: 'The github repository name including organization (e.g. user/repo)'
@@ -80,6 +89,7 @@ export const initCommand = {
     return { ...inputs, ...answers }
   }
 } as CliCommand<undefined, {
+  needAddRemote: boolean,
   copyArtifacts: typeof copyArtifacts,
   getInputs(args: any): Promise<object>,
   initializeFolder: typeof initializeFolder,
