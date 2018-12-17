@@ -54,9 +54,9 @@ jobs:
           paths:
             - 'node_modules'
             - 'packages/uni-cli/node_modules'
-      - run: npm run verify-ci
-      - run: npx codecov
-      - run: npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      - run: cd packages/uni-cli && npm run verify-ci
+      - run: cd packages/uni-cli && npx codecov
+      - run: cd packages/uni-cli && npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - store_test_results:
           path: .reports/junit
   node10:
@@ -66,7 +66,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npm run verify-ci
+      - run: cd packages/uni-cli && npm run verify-ci
       - store_test_results:
           path: .reports/junit
   node9:
@@ -76,7 +76,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npm run verify-ci
+      - run: cd packages/uni-cli && npm run verify-ci
       - store_test_results:
           path: .reports/junit
   node8:
@@ -86,7 +86,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npm run verify-ci
+      - run: cd packages/uni-cli && npm run verify-ci
       - store_test_results:
           path: .reports/junit
   release:
@@ -98,9 +98,9 @@ jobs:
           at: '.'
       - run:
           name: update greenkeeper lockfile
-          command: ./node_modules/.bin/greenkeeper-lockfile-update
-      - run: npm run build
+          command: cd packages/uni-cli && ./node_modules/.bin/greenkeeper-lockfile-update
+      - run: cd packages/uni-cli && npm run build
       - run:
           name: upload greenkeeper lockfile
-          command: ./node_modules/.bin/greenkeeper-lockfile-upload
-      - run: npx semantic-release
+          command: cd packages/uni-cli && ./node_modules/.bin/greenkeeper-lockfile-upload
+      - run: cd packages/uni-cli && npx semantic-release
