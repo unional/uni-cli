@@ -19,7 +19,7 @@ workflows:
               only: master
           requires:
             - node-latest
-            - node-10
+            - node10
             - node9
             - node8
 jobs:
