@@ -98,9 +98,9 @@ jobs:
           at: '.'
       - run:
           name: update greenkeeper lockfile
-          command: cd packages/uni-cli && ./node_modules/.bin/greenkeeper-lockfile-update
+          command: ./node_modules/.bin/greenkeeper-lockfile-update
       - run: cd packages/uni-cli && npm run build
       - run:
           name: upload greenkeeper lockfile
-          command: cd packages/uni-cli && ./node_modules/.bin/greenkeeper-lockfile-upload
-      - run: cd packages/uni-cli && npx semantic-release
+          command: ./node_modules/.bin/greenkeeper-lockfile-upload
+      - run: lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo

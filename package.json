@@ -13,5 +13,11 @@
       "**/tslint",
       "**/typescript"
     ]
+  },
+  "devDependencies": {
+    "greenkeeper-lockfile": "^1.15.1",
+    "lerna": "^3.6.0",
+    "semantic-release": "^15.13.1",
+    "semantic-release-monorepo": "^6.1.1"
   }
 }
