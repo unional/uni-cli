@@ -1,11 +1,9 @@
+import t from 'assert';
 import fs from 'fs';
 import path from 'path';
 import { dirSync } from 'tmp';
 import { initializeFolder } from '.';
-import t from 'assert'
-import { promisify } from 'util';
-import { exec } from 'child_process';
-import { getRepositoryName, getRemote, isGitRepo } from '../git';
+import { getRemote, getRepositoryName, isGitRepo } from '../git';
 
 test('copy LICENSE', async () => {
   const tmp = dirSync()
@@ -45,7 +43,7 @@ test('will add remote if input.noRemote is true', async () => {
   const tmp = dirSync()
   await initializeFolder({ repository: 'user/dummy', noRemote: true }, tmp.name)
   const remote = getRemote(tmp.name)
-  console.log(remote)
+  console.info(remote)
   const actual = getRepositoryName(remote)
   t.strictEqual(actual, 'user/dummy')
 })
