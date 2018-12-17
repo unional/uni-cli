@@ -35,9 +35,6 @@ test('copy README.md', async () => {
   t(actual.indexOf(`https://circleci.com/gh/user/dummy/tree/master.svg?style=shield`) > 0)
 })
 
-const execp = promisify(exec)
-
-
 test('will do git init if the repo is not a git repo', async () => {
   const tmp = dirSync()
   await initializeFolder({ isGitRepo: false }, tmp.name)
@@ -46,8 +43,9 @@ test('will do git init if the repo is not a git repo', async () => {
 
 test('will add remote if input.noRemote is true', async () => {
   const tmp = dirSync()
-  await execp('git init', { cwd: tmp.name })
-  await initializeFolder({ repository: 'user/dummy', isGitRepo: true, noRemote: true }, tmp.name)
-  const actual = getRepositoryName(getRemote(tmp.name))
+  await initializeFolder({ repository: 'user/dummy', noRemote: true }, tmp.name)
+  const remote = getRemote(tmp.name)
+  console.log(remote)
+  const actual = getRepositoryName(remote)
   t.strictEqual(actual, 'user/dummy')
 })

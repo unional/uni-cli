@@ -56,9 +56,13 @@ export const initCommand = {
     }
     else {
       inputs.isGitRepo = isGitRepo()
-      const repo = inputs.repository = getRepositoryName(getRemote())
-      if (!repo) {
-        inputs.noRemote = true
+      if (inputs.isGitRepo) {
+        const repo = inputs.repository = getRepositoryName(getRemote())
+        if (!repo) {
+          inputs.noRemote = true
+        }
+      }
+      if (!inputs.isGitRepo || inputs.noRemote) {
         questions.push({
           name: 'repository',
           message: 'The github repository name including organization (e.g. user/repo)'
