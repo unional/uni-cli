@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 import { CliCommand } from 'clibuilder';
-import { applyTemplates, copyArtifacts } from '../devpkg-io';
+import { copyArtifacts } from '../devpkg-io';
 import { getRemote, getRepositoryName } from '../git';
 import { getConfig } from '../git/getConfig';
-import { createPackageJson, installDev } from '../npm';
 import { initializeFolder } from '../io';
+import { installDev } from '../npm';
 import inquirer = require('inquirer');
 
 export const initCommand = {
@@ -20,9 +20,7 @@ export const initCommand = {
       }
     }
   },
-  applyTemplates,
   copyArtifacts,
-  createPackageJson,
   initializeFolder,
   installDev,
   async run(args) {
@@ -34,11 +32,10 @@ export const initCommand = {
     this.ui.info('Installing @unional/devpkg-node')
     await this.installDev('@unional/devpkg-node')
 
-    // this.ui.info('Copying files...')
-    // await this.copyArtifacts('@unional/devpkg-node', 'simple')
+    this.ui.info('Copying files...')
+    await this.copyArtifacts('@unional/devpkg-node', 'simple')
 
-    // this.ui.info('Applying templates...')
-    // await this.applyTemplates('@unional/devpkg-node', 'simple')
+    this.ui.info('Ready!')
   },
   async getInputs(args: any) {
     const inputs: any = { year: new Date().getFullYear() }
@@ -96,11 +93,8 @@ export const initCommand = {
     return answers['repositoryName']
   }
 } as CliCommand<undefined, {
-  applyTemplates: typeof applyTemplates,
   copyArtifacts: typeof copyArtifacts,
-  createPackageJson: typeof createPackageJson,
   getInputs(args: any): Promise<object>,
   initializeFolder: typeof initializeFolder,
-  installDev: typeof installDev,
-  getRepositoryName(name: string | undefined): string
+  installDev: typeof installDev
 }>
