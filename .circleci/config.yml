@@ -56,7 +56,7 @@ jobs:
             - 'packages/uni-cli/node_modules'
       - run: cd packages/uni-cli && npm run verify:ci
       - run: cd packages/uni-cli && npx codecov
-      - run: cd packages/uni-cli && npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      # - run: cd packages/uni-cli && npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - store_test_results:
           path: .reports/junit
   node10:

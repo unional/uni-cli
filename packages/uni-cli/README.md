@@ -6,7 +6,7 @@
 [![Circleci status][circleci-image]][circleci-url]
 [![Travis status][travis-image]][travis-url]
 [![Codecov][codecov-image]][codecov-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
+<!-- [![Coveralls Status][coveralls-image]][coveralls-url] -->
 
 [![Greenkeeper badge][green-keeper-image]][green-keeper-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
