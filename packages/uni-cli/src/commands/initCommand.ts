@@ -29,7 +29,7 @@ export const initCommand = {
     this.ui.info('Initializing folder...')
     await this.initializeFolder(inputs)
 
-    this.ui.info('Installing @unional/devpkg-node')
+    this.ui.info('Installing @unional/devpkg-node assertron...')
     await this.installDev('@unional/devpkg-node', 'assertron')
 
     this.ui.info('Copying files...')
