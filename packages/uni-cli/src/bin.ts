@@ -1,5 +1,10 @@
 #!/usr/bin/env node
-import { cli } from './cli'
+import updateNotifier from 'update-notifier';
+import { cli } from './cli';
+
+const pkg = require('./package.json');
+
+updateNotifier({ pkg }).notify();
 
 cli.parse(process.argv)
   .catch(err => {

@@ -1,7 +1,7 @@
 {
   "name": "@unional/uni-cli",
   "version": "0.0.0-development",
-  "description": "Development tool",
+  "description": "Development CLI tool",
   "homepage": "https://github.com/unional/uni-cli",
   "bugs": {
     "url": "https://github.com/unional/uni-cli/issues"
@@ -12,23 +12,23 @@
   },
   "license": "MIT",
   "files": [
+    "artifacts",
     "lib"
   ],
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "bin": {
+    "uni": "lib/bin.js"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
-    "dc": "npm run dependency-check",
-    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
     "lint": "tslint -p tsconfig.json",
     "test": "tsc && jest",
-    "verify": "npm run lint && npm run build && jest --coverage && npm run test:browser && npm run dependency-check",
+    "verify": "npm run lint && npm run build && jest --coverage",
     "verify:ci": "npm run lint && npm run build && jest --coverage --config jest.config.ci.json",
     "watch": "jest --watch"
   },
   "dependencies": {
-    "clibuilder": "^2.4.2",
+    "clibuilder": "^2.4.3",
     "make-error": "^1.3.5",
     "ncp": "^2.0.0",
     "ramda": "^0.26.1",
@@ -38,6 +38,7 @@
     "@types/ncp": "^2.0.1",
     "@types/ramda": "^0.25.44",
     "@types/tmp": "^0.0.33",
+    "@types/update-notifier": "^2.5.0",
     "@unional/devpkg-node": "^1.0.1",
     "tmp": "^0.0.33"
   }

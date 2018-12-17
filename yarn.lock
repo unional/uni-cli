@@ -174,6 +174,11 @@
   resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.0.33.tgz#1073c4bc824754ae3d10cfab88ab0237ba964e4d"
   integrity sha1-EHPEvIJHVK49EM+riKsCN7qWTk0=
 
+"@types/update-notifier@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@types/update-notifier/-/update-notifier-2.5.0.tgz#63cfcee92cc915f9a6eea4d1442ec6efd012e118"
+  integrity sha512-YV+ZcSIiv30GhLM7WwxI+bsbcW34d3Yhl2JSFBNFL6qtfsoI9++hogxz+jTqeS86ynKcMUE0AsnLWQynfJnsfA==
+
 "@unional/logging@^0.5.3":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@unional/logging/-/logging-0.5.3.tgz#9484ca9f771295f541d08a07eaf0d0f4b5a0965a"
@@ -907,7 +912,7 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clibuilder@^2.4.2:
+clibuilder@^2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/clibuilder/-/clibuilder-2.4.3.tgz#963dcbf54341788d1de62aff284c595f668866bf"
   integrity sha512-tQcJvKPs1PDfeplVdvhIqrzJHrzhhXMYo1UKbJ/aCVbOtgF3UVDzyrWEvSQ3qyaC0K4tw/yOOGsHtLvSPx40Iw==

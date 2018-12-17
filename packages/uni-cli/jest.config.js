@@ -7,7 +7,8 @@ module.exports = {
   },
   'collectCoverageFrom': [
     '<rootDir>/src/**/*.ts',
-    '!<rootDir>/src/bin.ts'
+    '!<rootDir>/src/bin.ts',
+    '!<rootDir>/src/commands/**/*'
   ],
   'reporters': [
     'default',
