@@ -1,0 +1,13 @@
+{
+  "name": "uni",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@unional/devpkg-*",
+      "**/jest"
+    ]
+  }
+}
