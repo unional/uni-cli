@@ -37,16 +37,17 @@ test('copy README.md', async () => {
 
 const execp = promisify(exec)
 
-test('will add remote if input.noRemote is true', async () => {
-  const tmp = dirSync()
-  await execp('git init', { cwd: tmp.name })
-  await initializeFolder({ repository: 'user/dummy', noRemote: true }, tmp.name)
-  const actual = getRepositoryName(getRemote(tmp.name))
-  t.strictEqual(actual, 'user/dummy')
-})
 
 test('will do git init if the repo is not a git repo', async () => {
   const tmp = dirSync()
   await initializeFolder({ isGitRepo: false }, tmp.name)
   t.strictEqual(await isGitRepo(tmp.name), true)
+})
+
+test('will add remote if input.noRemote is true', async () => {
+  const tmp = dirSync()
+  await execp('git init', { cwd: tmp.name })
+  await initializeFolder({ repository: 'user/dummy', isGitRepo: true, noRemote: true }, tmp.name)
+  const actual = getRepositoryName(getRemote(tmp.name))
+  t.strictEqual(actual, 'user/dummy')
 })
