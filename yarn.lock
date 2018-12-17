@@ -907,7 +907,7 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clibuilder@^2.4.2:
+clibuilder@^2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/clibuilder/-/clibuilder-2.4.3.tgz#963dcbf54341788d1de62aff284c595f668866bf"
   integrity sha512-tQcJvKPs1PDfeplVdvhIqrzJHrzhhXMYo1UKbJ/aCVbOtgF3UVDzyrWEvSQ3qyaC0K4tw/yOOGsHtLvSPx40Iw==
