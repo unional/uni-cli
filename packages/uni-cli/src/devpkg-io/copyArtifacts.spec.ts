@@ -23,3 +23,11 @@ test('copy files to cwd', async () => {
   const dirs = fs.readdirSync(tmp.name)
   t(dirs.length > 0, 'cwd is empty')
 })
+
+test('_gitignore is renamed to .gitignore', async () => {
+  const tmp = dirSync()
+  await copyArtifacts('@unional/devpkg-node', 'simple', tmp.name)
+  const dirs = fs.readdirSync(tmp.name)
+  t.strictEqual(dirs.indexOf('_gitignore'), -1)
+  t(dirs.indexOf('.gitignore') > 0)
+})
