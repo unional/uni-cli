@@ -25,7 +25,6 @@ export const initCommand = {
   installDev,
   async run(args) {
     const inputs = await this.getInputs(args)
-
     this.ui.info('Initializing folder...')
     await this.initializeFolder(inputs)
 
@@ -49,15 +48,14 @@ export const initCommand = {
         message: 'The NPM package name'
       })
     }
-
     if (args.repo) {
       inputs.repo = args.repo
     }
     else {
-      const repo = inputs.repo = getRepositoryName(getRemote())
+      const repo = inputs.repository = getRepositoryName(getRemote())
       if (!repo) {
         questions.push({
-          name: 'repo',
+          name: 'repository',
           message: 'The github repository name including organization (e.g. user/repo)'
         })
       }
@@ -70,7 +68,7 @@ export const initCommand = {
         message: 'Your git username'
       })
     }
-    const gitEmail = inputs.gitemail = getConfig('user.email')
+    const gitEmail = inputs.gitEmail = getConfig('user.email')
     if (!gitEmail) {
       questions.push({
         name: 'gitEmail',
@@ -78,19 +76,8 @@ export const initCommand = {
       })
     }
     if (questions.length === 0) return inputs
-
-    return { ...inputs, ...this.ui!.prompt(questions) }
-  },
-  async getRepositoryName(name: string | undefined) {
-    if (name) return name
-
-    const repoName = getRepositoryName(getRemote())
-    if (repoName) return repoName
-    const answers = await this.ui!.prompt([{
-      name: 'repositoryName',
-      message: 'Please enterthe github repository name including organization (e.g. user/repo)'
-    }])
-    return answers['repositoryName']
+    const answers = await this.ui!.prompt(questions)
+    return { ...inputs, ...answers }
   }
 } as CliCommand<undefined, {
   copyArtifacts: typeof copyArtifacts,
