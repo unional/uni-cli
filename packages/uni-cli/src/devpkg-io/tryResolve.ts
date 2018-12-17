@@ -3,11 +3,12 @@ import { PackageNotFound } from './errors';
 
 export function tryResolve(packageName: string) {
   try {
-    const indexPath = require.resolve(packageName)
+
+    const indexPath = require.resolve(packageName, { paths: require.resolve.paths(process.cwd())! })
     return path.dirname(indexPath)
   }
   catch (e) {
-    if (e.code === 'MODULE_NOT_FOUND') {
+    if (/Cannot resolve module/.test(e.message)) {
       throw new PackageNotFound(packageName)
     }
     // istanbul ignore next
