@@ -103,4 +103,4 @@ jobs:
       - run:
           name: upload greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-upload
-      - run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
+      # - run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
