@@ -1,6 +1,6 @@
 {
   "name": "@unional/uni-cli",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Development tool",
   "homepage": "https://github.com/unional/uni-cli",
   "bugs": {
