@@ -34,9 +34,9 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules cache
-          key: node_modules-{{ checksum "yarn.lock" }}
+      # - restore_cache:
+      #     name: Restore node_modules cache
+      #     key: node_modules-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: |
