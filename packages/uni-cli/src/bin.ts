@@ -2,7 +2,7 @@
 import updateNotifier from 'update-notifier';
 import { cli } from './cli';
 
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 updateNotifier({ pkg }).notify();
 
