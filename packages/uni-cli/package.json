@@ -21,11 +21,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
-    "dc": "npm run dependency-check",
-    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
     "lint": "tslint -p tsconfig.json",
     "test": "tsc && jest",
-    "verify": "npm run lint && npm run build && jest --coverage && npm run test:browser && npm run dependency-check",
+    "verify": "npm run lint && npm run build && jest --coverage",
     "verify:ci": "npm run lint && npm run build && jest --coverage --config jest.config.ci.json",
     "watch": "jest --watch"
   },
@@ -40,6 +38,7 @@
     "@types/ncp": "^2.0.1",
     "@types/ramda": "^0.25.44",
     "@types/tmp": "^0.0.33",
+    "@types/update-notifier": "^2.5.0",
     "@unional/devpkg-node": "^1.0.1",
     "tmp": "^0.0.33"
   }
