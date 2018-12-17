@@ -7,14 +7,14 @@ import { getRemote, isGitRepo } from '../git';
 
 test('copy LICENSE', async () => {
   const tmp = dirSync()
-  await initializeFolder({ year: 1234, gitUsername: 'unional', gitEmail: 'abc@def.com' }, tmp.name)
+  await initializeFolder({ year: 1234, gitUsername: 'unional', gitEmail: 'abc@def.com', isGitRepo: true }, tmp.name)
   const actual = fs.readFileSync(path.resolve(tmp.name, 'LICENSE'), 'utf-8')
   t(actual.indexOf(`Copyright (c) 1234 unional (abc@def.com)`) > 0)
 })
 
 test('copy package.json', async () => {
   const tmp = dirSync()
-  await initializeFolder({ name: 'dummy', repository: 'user/dummy', gitUsername: 'unional', gitEmail: 'abc@def.com' }, tmp.name)
+  await initializeFolder({ name: 'dummy', repository: 'user/dummy', gitUsername: 'unional', gitEmail: 'abc@def.com', isGitRepo: true }, tmp.name)
   const actual = fs.readFileSync(path.resolve(tmp.name, 'package.json'), 'utf-8')
   t(actual.indexOf(`"name": "dummy"`) > 0)
   t(actual.indexOf(`"homepage": "https://github.com/user/dummy"`) > 0)
@@ -26,7 +26,7 @@ test('copy package.json', async () => {
 
 test('copy README.md', async () => {
   const tmp = dirSync()
-  await initializeFolder({ name: 'dummy-pkg', repository: 'user/dummy' }, tmp.name)
+  await initializeFolder({ name: 'dummy-pkg', repository: 'user/dummy', isGitRepo: true }, tmp.name)
   const actual = fs.readFileSync(path.resolve(tmp.name, 'README.md'), 'utf-8')
   t(actual.indexOf(`# dummy-pkg`) === 0)
   t(actual.indexOf(`Description for \`dummy-pkg\``) > 0)
