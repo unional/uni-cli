@@ -5,5 +5,6 @@ test('get version from package.json', () => {
   const actual = getVersion()
 
   // in real code, it will get from the published package.json thus getting the real version number.
-  t.strictEqual(actual, '0.0.0-development')
+  const pjson = require('../package.json')
+  t.strictEqual(actual, pjson.version)
 })
