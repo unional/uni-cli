@@ -34,9 +34,9 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+      # - restore_cache:
+      #     name: Restore node_modules cache
+      #     key: yarn-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: |
@@ -48,11 +48,13 @@ jobs:
           key: yarn-{{ checksum "yarn.lock" }}
           paths:
             - 'node_modules'
+            - 'packages/devpkg-node/node_modules'
             - 'packages/uni-cli/node_modules'
       - persist_to_workspace:
           root: '.'
           paths:
             - 'node_modules'
+            - 'packages/devpkg-node/node_modules'
             - 'packages/uni-cli/node_modules'
       - run: cd packages/uni-cli && npm run verify:ci
       - run: cd packages/uni-cli && npx codecov
