@@ -108,6 +108,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
+      - run: npm i --no-save greenkeeper-lockfile
       - run:
           name: update greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-update
