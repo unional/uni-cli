@@ -37,7 +37,12 @@ export const initCommand = {
 
     this.ui.info(`Ready!`)
     this.ui.info(``)
-    this.ui.info(`Remember to update your package description in package.json and README.md`)
+    this.ui.info(`Remember to:`)
+    this.ui.info(`  update your package description in package.json and README.md`)
+    this.ui.info(`  configure Github setting and branch protection`)
+    this.ui.info(`  enable project in CircleCI, Codecov, Greenkeeper`)
+    this.ui.info(`  optionaly Travis, Coveralls, and Codacy`)
+    this.ui.info(`  for Codacy code coverage, add CODACY_PROJECT_TOKEN to Travis env`)
   },
   async getInputs(args: { name?: string, repo?: string }) {
     const inputs: any = { year: new Date().getFullYear() }
