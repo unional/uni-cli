@@ -46,7 +46,7 @@ jobs:
           command: |
             if [ ! -d node_modules ]; then
               yarn install
-              npm i --no-save jest-junit
+              npx lerna add jest-junit packages/uni-cli
             fi
       # - save_cache:
       #     name: Save node modules cache
@@ -60,7 +60,7 @@ jobs:
           paths:
             - 'node_modules'
             - 'packages/uni-cli/node_modules'
-      - run: cd packages/uni-cli && npx codecov
+      - run: npx lerna run codecov
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node10:
