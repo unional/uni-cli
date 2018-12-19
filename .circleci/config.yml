@@ -45,7 +45,7 @@ jobs:
           name: Install Dependencies
           command: |
             if [ ! -d node_modules ]; then
-              yarn install
+              npx lerna bootstrap
               npx lerna add jest-junit packages/uni-cli
             fi
       # - save_cache:
