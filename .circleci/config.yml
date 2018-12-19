@@ -60,7 +60,7 @@ jobs:
             - 'node_modules'
             - 'packages/uni-cli/node_modules'
       - run: cd packages/uni-cli && yarn run verify:ci
-      - run: cd packages/uni-cli && yarn run codecov
+      - run: cd packages/uni-cli && npx codecov
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node10:
