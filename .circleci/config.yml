@@ -38,28 +38,31 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
+      - run: sudo npm i -g lerna
       - restore_cache:
           name: Restore node_modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: node_modules-{{ checksum "package-lock.json" }}-{{ checksum "packages/devpkg-node/package-lock.json"}}-{{ checksum "packages/uni-cli/package-lock.json"}}
       - run:
           name: Install Dependencies
           command: |
             if [ ! -d node_modules ]; then
-              yarn install
-              npx lerna add jest-junit packages/uni-cli
+              lerna bootstrap --hoist
+              lerna add jest-junit packages/uni-cli
             fi
       - save_cache:
           name: Save node modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: node_modules-{{ checksum "package-lock.json" }}-{{ checksum "packages/devpkg-node/package-lock.json"}}-{{ checksum "packages/uni-cli/package-lock.json"}}
           paths:
-            - 'node_modules'
-            - 'packages/uni-cli/node_modules'
+            - node_modules
+            - packages/devpkg-node/node_modules
+            - packages/uni-cli/node_modules
       - persist_to_workspace:
           root: '.'
           paths:
-            - 'node_modules'
-            - 'packages/uni-cli/node_modules'
-      - run: cd packages/uni-cli && yarn run verify:ci
+            - node_modules
+            - packages/devpkg-node/node_modules
+            - packages/uni-cli/node_modules
+      - run: lerna run verify:ci
       - run: cd packages/uni-cli && npx codecov
       - store_test_results:
           path: packages/uni-cli/.reports/junit
@@ -70,7 +73,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && yarn run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node9:
@@ -80,7 +83,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && yarn run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node8:
@@ -90,7 +93,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && yarn run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node6:
@@ -100,7 +103,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && yarn run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   release:
@@ -114,7 +117,7 @@ jobs:
       - run:
           name: update greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-update
-      - run: cd packages/uni-cli && npm run build
+      - run: lerna run build
       - run:
           name: upload greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-upload
