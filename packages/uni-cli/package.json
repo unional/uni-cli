@@ -21,10 +21,14 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
+    "coverage": "jest --coverage",
+    "coverage:ci": "jest --coverage --config jest.config.ci.json",
+    "dc": "yarn run dependency-check",
+    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
     "lint": "tslint -p tsconfig.json",
     "test": "tsc && jest",
-    "verify": "npm run lint && npm run build && jest --coverage",
-    "verify:ci": "npm run lint && npm run build && jest --coverage --config jest.config.ci.json",
+    "verify": "yarn run lint && yarn run build && yarn run coverage",
+    "verify:ci": "yarn run lint && yarn run build && yarn run coverage:ci",
     "watch": "jest --watch"
   },
   "dependencies": {

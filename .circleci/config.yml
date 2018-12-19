@@ -13,19 +13,19 @@ workflows:
       - node8:
           requires:
             - node-latest
-      - node6:
-          requires:
-            - node-latest
-      - release:
-          filters:
-            branches:
-              only: master
-          requires:
-            - node-latest
-            - node10
-            - node9
-            - node8
-            - node6
+      # - node6:
+      #     requires:
+      #       - node-latest
+      # - release:
+      #     filters:
+      #       branches:
+      #         only: master
+      #     requires:
+      #       - node-latest
+      #       - node10
+      #       - node9
+      #       - node8
+      #       - node6
 jobs:
   local-test:
     docker:
@@ -40,25 +40,24 @@ jobs:
       - checkout
       - restore_cache:
           name: Restore node_modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: node_modules-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: |
             if [ ! -d node_modules ]; then
               yarn install
-              npm i --no-save jest-junit
             fi
       - save_cache:
           name: Save node modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: node_modules-{{ checksum "yarn.lock" }}
           paths:
-            - 'node_modules'
-            - 'packages/uni-cli/node_modules'
+            - node_modules
+            - packages/uni-cli/node_modules
       - persist_to_workspace:
           root: '.'
           paths:
-            - 'node_modules'
-            - 'packages/uni-cli/node_modules'
+            - node_modules
+            - packages/uni-cli/node_modules
       - run: cd packages/uni-cli && npm run verify:ci
       - run: cd packages/uni-cli && npx codecov
       - store_test_results:
@@ -110,12 +109,5 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npm i --no-save greenkeeper-lockfile
-      - run:
-          name: update greenkeeper lockfile
-          command: ./node_modules/.bin/greenkeeper-lockfile-update
       - run: cd packages/uni-cli && npm run build
-      - run:
-          name: upload greenkeeper lockfile
-          command: ./node_modules/.bin/greenkeeper-lockfile-upload
-      # - run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
+      - run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
