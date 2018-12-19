@@ -6,12 +6,7 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/@unional/devpkg-*",
-      "**/greenkeeper-lockfile-update",
-      "**/jest",
-      "**/semantic-release",
-      "**/tslint",
-      "**/typescript"
+      "**/@unional/devpkg-*"
     ]
   },
   "devDependencies": {
