@@ -6,8 +6,5 @@
       "packages/*"
     ]
   },
-  "devDependencies": {
-    "jest": "^23.6.0",
-    "tslint": "^5.12.0"
-  }
+  "devDependencies": {}
 }
