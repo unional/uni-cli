@@ -13,6 +13,9 @@ workflows:
       - node8:
           requires:
             - node-latest
+      - node6:
+          requires:
+            - node-latest
       - release:
           filters:
             branches:
@@ -22,6 +25,7 @@ workflows:
             - node10
             - node9
             - node8
+            - node6
 jobs:
   local-test:
     docker:
@@ -42,6 +46,7 @@ jobs:
           command: |
             if [ ! -d node_modules ]; then
               yarn install
+              npm i --no-save jest-junit
             fi
       - save_cache:
           name: Save node modules cache
@@ -56,7 +61,6 @@ jobs:
             - 'packages/uni-cli/node_modules'
       - run: cd packages/uni-cli && npm run verify:ci
       - run: cd packages/uni-cli && npx codecov
-      # - run: cd packages/uni-cli && npm install --no-save coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node10:
@@ -89,6 +93,16 @@ jobs:
       - run: cd packages/uni-cli && npm run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
+  node6:
+    docker:
+      - image: 'circleci/node:6'
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '.'
+      - run: cd packages/uni-cli && npm run verify:ci
+      - store_test_results:
+          path: packages/uni-cli/.reports/junit
   release:
     docker:
       - image: circleci/node:11
@@ -96,6 +110,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
+      - run: npm i --no-save greenkeeper-lockfile
       - run:
           name: update greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-update
