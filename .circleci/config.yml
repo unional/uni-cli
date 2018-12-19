@@ -38,9 +38,9 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
+      # - restore_cache:
+      #     name: Restore node_modules cache
+      #     key: yarn-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: |
@@ -48,12 +48,12 @@ jobs:
               yarn install
               npm i --no-save jest-junit
             fi
-      - save_cache:
-          name: Save node modules cache
-          key: yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - 'node_modules'
-            - 'packages/uni-cli/node_modules'
+      # - save_cache:
+      #     name: Save node modules cache
+      #     key: yarn-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - 'node_modules'
+      #       - 'packages/uni-cli/node_modules'
       - run: npx lerna run verify:ci
       - persist_to_workspace:
           root: '.'
