@@ -46,8 +46,7 @@ jobs:
           command: |
             if [ ! -d node_modules ]; then
               yarn install
-              yarn add --dev jest-unit
-              yarn remove jest-unit
+              npm i --no-save jest-unit
             fi
       - save_cache:
           name: Save node modules cache
