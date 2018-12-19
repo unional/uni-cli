@@ -23,8 +23,8 @@
     "clean": "rimraf lib",
     "lint": "tslint -p tsconfig.json",
     "test": "tsc && jest",
-    "verify": "npm run lint && npm run build && jest --coverage",
-    "verify:ci": "npm run lint && npm run build && jest --coverage --config jest.config.ci.json",
+    "verify": "yarn run lint && yarn run build && jest --coverage",
+    "verify:ci": "yarn run lint && yarn run build && jest --coverage --config jest.config.ci.json",
     "watch": "jest --watch"
   },
   "dependencies": {
