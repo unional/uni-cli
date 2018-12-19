@@ -59,7 +59,7 @@ jobs:
           paths:
             - 'node_modules'
             - 'packages/uni-cli/node_modules'
-      - run: cd packages/uni-cli && npm run verify:ci
+      - run: lerna run verify:ci
       - run: cd packages/uni-cli && npx codecov
       - store_test_results:
           path: packages/uni-cli/.reports/junit
@@ -70,7 +70,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && npm run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node9:
@@ -80,7 +80,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && npm run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node8:
@@ -90,7 +90,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && npm run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node6:
@@ -100,7 +100,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: cd packages/uni-cli && npm run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   release:
