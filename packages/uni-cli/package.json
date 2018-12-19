@@ -1,6 +1,6 @@
 {
   "name": "@unional/uni-cli",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Development CLI tool",
   "homepage": "https://github.com/unional/uni-cli",
   "bugs": {
@@ -41,7 +41,7 @@
     "@types/ramda": "^0.25.44",
     "@types/tmp": "^0.0.33",
     "@types/update-notifier": "^2.5.0",
-    "@unional/devpkg-node": "^1.0.9",
+    "@unional/devpkg-node": "^1.1.0",
     "assertron": "^5.2.3",
     "tmp": "^0.0.33"
   }
