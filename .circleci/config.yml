@@ -38,6 +38,7 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
+      - run: yarn global add lerna
       # - restore_cache:
       #     name: Restore node_modules cache
       #     key: yarn-{{ checksum "yarn.lock" }}
@@ -45,8 +46,8 @@ jobs:
           name: Install Dependencies
           command: |
             if [ ! -d node_modules ]; then
-              npx lerna bootstrap
-              npx lerna add jest-junit packages/uni-cli
+              lerna bootstrap
+              lerna add jest-junit packages/uni-cli
             fi
       # - save_cache:
       #     name: Save node modules cache
@@ -54,13 +55,13 @@ jobs:
       #     paths:
       #       - 'node_modules'
       #       - 'packages/uni-cli/node_modules'
-      - run: npx lerna run verify:ci
+      - run: lerna run verify:ci
       - persist_to_workspace:
           root: '.'
           paths:
             - 'node_modules'
             - 'packages/uni-cli/node_modules'
-      - run: npx lerna run codecov
+      - run: lerna run codecov
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node10:
@@ -70,7 +71,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npx lerna run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node9:
@@ -80,7 +81,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npx lerna run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node8:
@@ -90,7 +91,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npx lerna run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   node6:
@@ -100,7 +101,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: '.'
-      - run: npx lerna run verify:ci
+      - run: lerna run verify:ci
       - store_test_results:
           path: packages/uni-cli/.reports/junit
   release:
@@ -118,4 +119,4 @@ jobs:
       - run:
           name: upload greenkeeper lockfile
           command: ./node_modules/.bin/greenkeeper-lockfile-upload
-      # - run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
+      # - run: lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
