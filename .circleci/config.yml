@@ -38,7 +38,7 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
-      - run: yarn global add lerna
+      - run: npm i -g lerna
       # - restore_cache:
       #     name: Restore node_modules cache
       #     key: yarn-{{ checksum "yarn.lock" }}
