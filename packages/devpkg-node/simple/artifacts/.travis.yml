@@ -14,17 +14,8 @@ branches:
   only:
     - master
     - /^greenkeeper.*$/
-# before_install:
-#   - ./scripts/run-on-node-version.sh 11 "npm install -g greenkeeper-lockfile@1"
-# before_script:
-#   - ./scripts/run-on-node-version.sh 11 "greenkeeper-lockfile-update"
 script:
-  - npm run verify-ci
-# after_success:
-#   - npm install -g travis-deploy-once@4
-#   - ./scripts/run-on-node-version.sh 11 "npx codecov"
+  - npm i --no-save jest-junit
+  - npm run verify
   - ./scripts/run-on-node-version.sh 11 "npm install -g codacy-coverage && cat ./coverage/lcov.info | codacy-coverage"
   - ./scripts/run-on-node-version.sh 11 "npm install -g coveralls && cat ./coverage/lcov.info | coveralls"
-#   - travis-deploy-once "npm run semantic-release"
-# after_script:
-#   - ./scripts/run-on-node-version 11 "greenkeeper-lockfile-upload"
