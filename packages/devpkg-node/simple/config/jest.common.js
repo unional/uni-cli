@@ -12,7 +12,8 @@ module.exports = isCI ? {
         'output': '.reports/junit/js-test-results.xml'
       }
     ]
-  ]
+  ],
+  'testEnvironment': 'node'
 } : {
     'preset': 'ts-jest',
     'collectCoverageFrom': [
@@ -27,6 +28,7 @@ module.exports = isCI ? {
     'roots': [
       '<rootDir>/src'
     ],
+    'testEnvironment': 'node',
     'watchPlugins': [
       'jest-watch-suspend',
       'jest-watch-repeat',
