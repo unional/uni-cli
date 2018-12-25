@@ -37,7 +37,7 @@ export async function initializeFolder(inputs: any, cwd = process.cwd()) {
   }
 
   if (inputs.noRemote) {
-    await execp(`git remote add origin https://github.com/${inputs.repository}.git`, { cwd })
+    await execp(`git remote add origin https://${inputs.host}/${inputs.repository}.git`, { cwd })
   }
 }
 
