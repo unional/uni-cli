@@ -69,8 +69,17 @@ export const initCommand = {
       }
       if (!inputs.isGitRepo || inputs.noRemote) {
         questions.push({
+          name: 'host',
+          type: 'list',
+          choices: [
+            { name: 'GitHub', value: 'github.com' },
+            { name: 'GitLab', value: 'gitlab.com' }
+          ],
+          message: 'Select hosting service'
+        })
+        questions.push({
           name: 'repository',
-          message: 'The github repository name including organization (e.g. user/repo)'
+          message: 'The repository name including organization (e.g. user/repo)'
         })
       }
     }
