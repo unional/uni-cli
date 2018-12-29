@@ -13,6 +13,7 @@
   "license": "MIT",
   "files": [
     "index.js",
+    "monorepo",
     "simple"
   ],
   "dependencies": {
