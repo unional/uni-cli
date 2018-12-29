@@ -15,10 +15,6 @@
     "index.js",
     "simple"
   ],
-  "bundleDependencies": [
-    "jest",
-    "tslint"
-  ],
   "dependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
