@@ -38,8 +38,8 @@ git push
 [circleci-url]: https://circleci.com/gh/[repository]/tree/master
 [codecov-image]: https://codecov.io/gh/[repository]/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/[repository]
-[coveralls-image]: https://coveralls.io/repos/github/[repository]/badge.svg
-[coveralls-url]: https://coveralls.io/github/[repository]
+[coveralls-image]: https://coveralls.io/repos/github/[repository]/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/[repository]?branch=master
 [downloads-image]: https://img.shields.io/npm/dm/[name].svg?style=flat
 [downloads-url]: https://npmjs.org/package/[name]
 [greenkeeper-image]: https://badges.greenkeeper.io/[repository].svg
