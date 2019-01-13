@@ -19,7 +19,7 @@ module.exports = isCI ? {
     'preset': 'ts-jest',
     'globals': {
       'ts-jest': {
-        'diagnoistics': false
+        'diagnostics': false
       }
     },
     'collectCoverageFrom': [
