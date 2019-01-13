@@ -17,6 +17,11 @@ module.exports = isCI ? {
   'testMatch': ['**/?(*.)+(spec|test|integrate|accept|system|unit).ts?(x)']
 } : {
     'preset': 'ts-jest',
+    'globals': {
+      'ts-jest': {
+        'diagnoistics': false
+      }
+    },
     'collectCoverageFrom': [
       '<rootDir>/src/**/*.ts',
       '!<rootDir>/src/bin.ts'
