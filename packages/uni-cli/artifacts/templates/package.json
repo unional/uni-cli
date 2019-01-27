@@ -1,7 +1,7 @@
 {
   "name": "[name]",
-  "description": "[description]",
   "version": "0.0.0-development",
+  "description": "[description]",
   "homepage": "https://github.com/[repository]",
   "bugs": {
     "url": "https://github.com/[repository]/issues"
