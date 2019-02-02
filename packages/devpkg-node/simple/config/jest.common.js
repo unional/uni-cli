@@ -14,7 +14,7 @@ module.exports = isCI ? {
     ],
   ],
   'testEnvironment': 'node',
-  'testMatch': ['**/?(*.)+(spec|test|integrate|accept|system|unit).ts?(x)']
+  'testMatch': ['**/?(*.)+(spec|test|integrate|accept|system|unit).[jt]s?(x)']
 } : {
     'preset': 'ts-jest',
     'globals': {
@@ -23,8 +23,8 @@ module.exports = isCI ? {
       }
     },
     'collectCoverageFrom': [
-      '<rootDir>/src/**/*.ts',
-      '!<rootDir>/src/bin.ts'
+      '<rootDir>/src/**/*.[jt]s',
+      '!<rootDir>/src/bin.[jt]s'
     ],
     'reporters': [
       'default',
@@ -35,7 +35,7 @@ module.exports = isCI ? {
       '<rootDir>/src'
     ],
     'testEnvironment': 'node',
-    'testMatch': ['**/?(*.)+(spec|test|integrate|accept|system|unit).ts?(x)'],
+    'testMatch': ['**/?(*.)+(spec|test|integrate|accept|system|unit).[jt]s?(x)'],
     'watchPlugins': [
       'jest-watch-suspend',
       'jest-watch-repeat',
