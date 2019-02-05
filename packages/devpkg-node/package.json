@@ -17,7 +17,7 @@
     "simple"
   ],
   "dependencies": {
-    "@types/jest": "^23.3.13",
+    "@types/jest": "^24.0.0",
     "@types/node": "^10.12.18",
     "dependency-check": "^3.2.1",
     "eslint": "^5.10.0",
