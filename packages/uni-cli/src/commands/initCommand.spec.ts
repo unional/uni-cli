@@ -4,16 +4,19 @@ import { initCommand } from './initCommand';
 import { some } from 'satisfier';
 
 describe('assert installed dependencies', () => {
-  const { cmd, args, argv } = setupCliCommandTest(initCommand, [])
-
-  cmd.getInputs = () => Promise.resolve({})
-  cmd.copyArtifacts = () => Promise.resolve()
-  cmd.initializeFolder = () => Promise.resolve()
   let actualPackages: string[]
-  cmd.installDev = (...packages: string[]) => {
-    actualPackages = packages
-    return Promise.resolve()
-  }
+
+  const { cmd, args, argv } = setupCliCommandTest(initCommand, [], undefined, {
+    _dep: {
+      getInputs: () => Promise.resolve({}),
+      copyArtifacts: () => Promise.resolve(),
+      initializeFolder: () => Promise.resolve(),
+      installDev: (...packages: string[]) => {
+        actualPackages = packages
+        return Promise.resolve()
+      }
+    }
+  })
 
   beforeAll(async () => {
     await cmd.run(args, argv)

@@ -1,5 +1,11 @@
-import { Cli } from 'clibuilder';
+import { PluginCli } from 'clibuilder';
 import { getVersion } from './version';
-import { initCommand } from './commands';
+import { initCommand, listCommand, searchCommand } from './commands';
+import { UniConfig } from './types';
 
-export const cli = new Cli({ name: 'uni', version: getVersion(), commands: [initCommand] })
+export const cli = new PluginCli<UniConfig>({
+  name: 'uni',
+  version: getVersion(),
+  defaultConfig: { devpkgKeywords: ['uni-devpkg'] },
+  commands: [initCommand, listCommand, searchCommand]
+})

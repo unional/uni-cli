@@ -32,11 +32,15 @@
     "watch": "jest --watch"
   },
   "dependencies": {
-    "clibuilder": "^2.4.3",
+    "clibuilder": "^4.3.0",
+    "find-installed-packages": "^2.0.0",
     "find-up": "^3.0.0",
+    "jest-junit": "^6.0.0",
     "make-error": "^1.3.5",
     "ncp": "^2.0.0",
     "ramda": "^0.26.1",
+    "search-packages": "^2.0.0",
+    "unpartial": "^0.4.1",
     "update-notifier": "^2.5.0"
   },
   "devDependencies": {
