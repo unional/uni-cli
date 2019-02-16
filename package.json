@@ -6,7 +6,15 @@
       "packages/*"
     ]
   },
+  "scripts": {
+    "build": "tsc -b",
+    "build:watch": "tsc -b -w",
+    "test": "yarn jest",
+    "verify": "yarn test",
+    "watch": "yarn jest --watch"
+  },
   "devDependencies": {
-    "jest-junit": "^6.0.0"
+    "jest-junit": "^6.3.0",
+    "jest-watch-toggle-config": "^1.0.2"
   }
 }
