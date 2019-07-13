@@ -1,6 +1,11 @@
 const isCI = require('is-ci')
 module.exports = isCI ? {
   'preset': 'ts-jest',
+  'globals': {
+    'ts-jest': {
+      'diagnostics': false
+    }
+  },
   'roots': [
     '<rootDir>/src'
   ],
