@@ -23,9 +23,9 @@ describe('assert installed dependencies', () => {
   })
 
   test('install @unional/dev as dev dependency', async () => {
-    a.satisfy(actualPackages, some('@unional/devpkg-node'))
+    a.satisfies(actualPackages, some('@unional/devpkg-node'))
   })
   test('install assertron as dev dependency directly so that it can be importable by TS', async () => {
-    a.satisfy(actualPackages, some('assertron'))
+    a.satisfies(actualPackages, some('assertron'))
   })
 })
