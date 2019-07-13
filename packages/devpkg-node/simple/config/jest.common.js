@@ -6,6 +6,10 @@ module.exports = isCI ? {
       'diagnostics': false
     }
   },
+  'collectCoverageFrom': [
+    '<rootDir>/src/**/*.[jt]s',
+    '!<rootDir>/src/bin.[jt]s'
+  ],
   'roots': [
     '<rootDir>/src'
   ],
