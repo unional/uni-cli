@@ -412,10 +412,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.17.tgz#2e7efbfe5253561087812571e5e6a1e4b1d6295b"
   integrity sha512-7W3kSMa8diVH6s24a8Qrmvwu+vG3ahOC/flMHFdWSdnPYoQI0yPO84h5zOWYXAha2Npn3Pw3SSuQSwBUfaniyQ==
 
-"@types/ramda@^0.25.44":
-  version "0.25.51"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.25.51.tgz#d5421d0e190c56c64c112a761a85782fc971409d"
-  integrity sha512-xcmtfHIgF9SYjhGdsZR1nQslxG4hu0cIpFfLQ4CWdw3KzHvl7ki1AzFLQUkbDTG42ZN3ZsQfdRzXRlkAvbIy5Q==
+"@types/ramda@^0.26.18":
+  version "0.26.18"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.26.18.tgz#a80f02b046edd5ff777e863732591bd50c53236e"
+  integrity sha512-wK3NLaAkL/ht7Nw4IZsOagJuYqzZgoboFvILolOPtmoKyy25gTdz/uvB/bXsv6vdWENYv+ml5ph873P2d/+9HA==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -443,6 +443,33 @@
   version "12.0.12"
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
   integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
+
+"@unional/devpkg-node@^1.2.3":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@unional/devpkg-node/-/devpkg-node-1.3.2.tgz#c3fb6c41592f1a0cb4c376af98a5b6fda367fdc9"
+  integrity sha512-hr7MJob47EM7PxI5cGuuqeWif4Us/QbnV+rF3hKbt4LbI1WF3PWL84x9oDFaoncwCsDUip5PxaeeTYN6uOV7eg==
+  dependencies:
+    "@types/jest" "^24.0.9"
+    "@types/node" "^11.9.5"
+    dependency-check "^3.3.0"
+    eslint "^5.14.1"
+    eslint-plugin-harmony "^1.0.4"
+    is-ci "^2.0.0"
+    jest "^24.1.0"
+    jest-audio-reporter "^2.2.1"
+    jest-junit "^6.3.0"
+    jest-progress-tracker "^2.0.1"
+    jest-validate "^24.0.0"
+    jest-watch-repeat "^1.0.1"
+    jest-watch-suspend "^1.1.1"
+    jest-watch-toggle-config "^1.0.2"
+    jest-watch-typeahead "^0.3.1"
+    power-assert "^1.6.1"
+    rimraf "^2.6.3"
+    ts-jest "^24.0.0"
+    tslint "^5.13.0"
+    tslint-config-unional "^0.10.0"
+    typescript "^3.3.3333"
 
 "@unional/logging@^1.0.3":
   version "1.0.5"
@@ -654,18 +681,6 @@ assertion-error@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
   integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
-
-assertron@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/assertron/-/assertron-6.1.0.tgz#0930c5218ea95183cafe9c4589f35d1a59707b4f"
-  integrity sha512-/obpEDVhtU4znjhKn8kG6gPZ3n9DMG2XSmroQQmAbOHvZ9yfCtLKIS0vGxYxa3iAM32agRKQjqzuZO6L+dwRYg==
-  dependencies:
-    assertion-error "^1.1.0"
-    is-node "^1.0.2"
-    is-promise "^2.1.0"
-    path-equal "^1.1.1"
-    satisfier "^4.5.1"
-    tersify "^1.2.6"
 
 assertron@^7.1.0:
   version "7.1.2"
@@ -1025,7 +1040,7 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clibuilder@^4.2.4, clibuilder@^4.3.0:
+clibuilder@^4.3.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/clibuilder/-/clibuilder-4.3.2.tgz#86d78b28cc1a0455af80ef7fb3c07aceb587dd8b"
   integrity sha512-BS7mVFUkNr5Xs95TSd5EAzFIe15FqUOgFW1NFD42QSFo26Kw7NP4tJWnxFKDNnCPk8AGraHYdyF0uLKS8a1oEw==
@@ -4224,13 +4239,6 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-satisfier@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/satisfier/-/satisfier-4.5.1.tgz#4cab4e08b3a9b74a417db8f5aba938e7fb3ccbb3"
-  integrity sha512-JrwJ/Ilrukrrnu5cYAzZOp/SqOCyU07WPr0UNJzPy9eL86XoU2Rx/BzvdVanku1Klj2NwhxTIa4g7S56yY7yqQ==
-  dependencies:
-    tersify "^1.2.6"
-
 satisfier@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/satisfier/-/satisfier-5.0.2.tgz#8b102a860b9a8b756f2f841a5b31f022325e36b4"
@@ -4595,13 +4603,6 @@ term-size@^1.2.0:
   integrity sha1-RYuDiH8oj8Vtb/+/rSYuJmOO+mk=
   dependencies:
     execa "^0.7.0"
-
-tersify@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tersify/-/tersify-1.2.6.tgz#05788b03504b78198a329119cbb14d02fd248f80"
-  integrity sha512-MU0uxPzyD+Syo4PLMB8IiaGroQdfk3iFGvoYS6fceKeD4Wj+UsNEmvJoGupP1nB19/HtWAE1AbNI0mZaU7eyKg==
-  dependencies:
-    unpartial "^0.4.1"
 
 tersify@^3.0.0, tersify@^3.0.1:
   version "3.0.3"
