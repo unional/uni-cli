@@ -33,7 +33,7 @@
     "jest-watch-toggle-config": "^1.0.2",
     "jest-watch-typeahead": "^0.3.1",
     "power-assert": "^1.6.1",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "ts-jest": "^24.0.0",
     "tslint": "^5.13.0",
     "tslint-config-unional": "^0.10.0",
