@@ -25,7 +25,7 @@
     "coverage:ci": "jest --coverage --config jest.config.ci.json",
     "dc": "yarn run dependency-check",
     "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "eslint \"src/**\"",
     "test": "tsc && jest",
     "verify": "yarn run lint && yarn run build && yarn run coverage",
     "verify:ci": "yarn run lint && yarn run build && yarn run coverage:ci",
