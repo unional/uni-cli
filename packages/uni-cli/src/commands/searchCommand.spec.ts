@@ -8,8 +8,8 @@ test('if config with devPkgKeywords, that will be used instead', async () => {
       searchByKeywords(keywords: string[]) {
         actual = keywords
         return Promise.resolve([])
-      }
-    }
+      },
+    },
   })
 
   await cmd.run(args, argv)
@@ -24,8 +24,8 @@ test('can specify additional keywords to narrow result', async () => {
       searchByKeywords(keywords: string[]) {
         actual = keywords
         return Promise.resolve(['xx', 'a', 'b'])
-      }
-    }
+      },
+    },
   })
 
   await cmd.run(args, argv)

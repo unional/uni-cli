@@ -9,7 +9,7 @@ export const searchCommand: CliCommand<UniConfig> = {
   arguments: [{
     name: 'keywords',
     description: 'additional keywords to narrow search results',
-    multiple: true
+    multiple: true,
   }],
   async run(args) {
     const keywords = this.config.devpkgKeywords
@@ -26,5 +26,5 @@ export const searchCommand: CliCommand<UniConfig> = {
       this.ui.info('')
       packages.forEach(p => this.ui.info(`  ${p}`))
     }
-  }
+  },
 }

@@ -7,5 +7,5 @@ export const cli = new PluginCli<UniConfig>({
   name: 'uni',
   version: getVersion(),
   defaultConfig: { devpkgKeywords: ['uni-devpkg'] },
-  commands: [initCommand, listCommand, searchCommand]
+  commands: [initCommand, listCommand, searchCommand],
 })

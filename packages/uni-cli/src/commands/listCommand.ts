@@ -20,5 +20,5 @@ export const listCommand: CliCommand<UniConfig> = {
       this.ui.info('')
       packages.forEach(p => this.ui.info(`  ${p}`))
     }
-  }
+  },
 }

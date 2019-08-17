@@ -14,27 +14,27 @@ export const initCommand: CliCommand<UniConfig, {
     copyArtifacts: typeof copyArtifacts,
     getInputs(args: any): Promise<object>,
     initializeFolder: typeof initializeFolder,
-    installDev: typeof installDev
-  }
+    installDev: typeof installDev,
+  },
 }> = {
   name: 'init',
   description: 'setup an existing repository',
   options: {
     string: {
       name: {
-        description: 'The NPM package name'
+        description: 'The NPM package name',
       },
       repo: {
-        description: 'The github repository name including organization (e.g. user/repo)'
-      }
-    }
+        description: 'The github repository name including organization (e.g. user/repo)',
+      },
+    },
   },
   async run(args) {
     const dep = unpartial({
       copyArtifacts,
       getInputs,
       initializeFolder,
-      installDev
+      installDev,
     }, this.context._dep)
 
     const inputs = await dep.getInputs(this, args as any)
@@ -56,7 +56,7 @@ export const initCommand: CliCommand<UniConfig, {
     this.ui.info(`  enable project in CircleCI, Codecov, Greenkeeper`)
     this.ui.info(`  optionaly Travis, Coveralls, and Codacy`)
     this.ui.info(`  for Codacy code coverage, add CODACY_PROJECT_TOKEN to Travis env`)
-  }
+  },
 }
 
 async function getInputs({ ui }: { ui: Inquirer }, args: { name?: string, repo?: string }) {
@@ -68,7 +68,7 @@ async function getInputs({ ui }: { ui: Inquirer }, args: { name?: string, repo?:
   else {
     questions.push({
       name: 'name',
-      message: 'The NPM package name'
+      message: 'The NPM package name',
     })
   }
   if (args.repo) {
@@ -88,13 +88,13 @@ async function getInputs({ ui }: { ui: Inquirer }, args: { name?: string, repo?:
         type: 'list',
         choices: [
           { name: 'GitHub', value: 'github.com' },
-          { name: 'GitLab', value: 'gitlab.com' }
+          { name: 'GitLab', value: 'gitlab.com' },
         ],
-        message: 'Select hosting service'
+        message: 'Select hosting service',
       })
       questions.push({
         name: 'repository',
-        message: 'The repository name including organization (e.g. user/repo)'
+        message: 'The repository name including organization (e.g. user/repo)',
       })
     }
   }
@@ -103,14 +103,14 @@ async function getInputs({ ui }: { ui: Inquirer }, args: { name?: string, repo?:
   if (!gitUsername) {
     questions.push({
       name: 'gitUsername',
-      message: 'Your git username'
+      message: 'Your git username',
     })
   }
   const gitEmail = inputs.gitEmail = getConfig('user.email')
   if (!gitEmail) {
     questions.push({
       name: 'gitEmail',
-      message: 'Your git email'
+      message: 'Your git email',
     })
   }
   if (questions.length === 0) return inputs

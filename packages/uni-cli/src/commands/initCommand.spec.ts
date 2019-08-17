@@ -14,8 +14,8 @@ describe('assert installed dependencies', () => {
       installDev: (...packages: string[]) => {
         actualPackages = packages
         return Promise.resolve()
-      }
-    }
+      },
+    },
   })
 
   beforeAll(async () => {

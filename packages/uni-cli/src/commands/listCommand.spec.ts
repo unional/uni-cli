@@ -1,4 +1,3 @@
-import t from 'assert';
 import { setupCliCommandTest } from 'clibuilder';
 import { listCommand } from './listCommand';
 
@@ -9,8 +8,8 @@ test('if config with devPkgKeyword, that will be used instead', async () => {
       findByKeywords(keywords: string[]) {
         actual = keywords
         return Promise.resolve([])
-      }
-    }
+      },
+    },
   })
 
   await cmd.run(args, argv)

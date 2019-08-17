@@ -13,5 +13,5 @@ Could not locate any installed plugin.
 Please use ${chalk.green('uni-cli')} to install plugins.
 `)
     }
-  }
+  },
 }

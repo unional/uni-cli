@@ -45,7 +45,7 @@ async function readTemplates() {
   return {
     'LICENSE': await readFilep(path.resolve(__dirname, '../../artifacts/templates/LICENSE'), 'utf-8'),
     'package.json': await readFilep(path.resolve(__dirname, '../../artifacts/templates/package.json'), 'utf-8'),
-    'README.md': await readFilep(path.resolve(__dirname, '../../artifacts/templates/README.md'), 'utf-8')
+    'README.md': await readFilep(path.resolve(__dirname, '../../artifacts/templates/README.md'), 'utf-8'),
   }
 }
 
