@@ -452,10 +452,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/ncp@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@types/ncp/-/ncp-2.0.1.tgz#749432511f6ad747d04e98837b18cca9045567fb"
-  integrity sha512-TeiJ7uvv/92ugSqZ0v9l0eNXzutlki0aK+R1K5bfA5SYUil46ITlxLW4iNTCf55P4L5weCmaOdtxGeGWvudwPg==
+"@types/ncp@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/ncp/-/ncp-2.0.3.tgz#68429472698a68f2c85a984932e9d8014d5f2ed0"
+  integrity sha512-eZatZMWhPHUHY/1hUUqwGrWzBAE9deYR3L0QJMicpVkBUOrQslhWblw5Ye+rKuzvFG/UQ3jDolMcjhC2WKUQ5w==
   dependencies:
     "@types/node" "*"
 
@@ -464,10 +464,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.2.tgz#a5ccec6abb6060d5f20d256fb03ed743e9774999"
   integrity sha512-gojym4tX0FWeV2gsW4Xmzo5wxGjXGm550oVUII7f7G5o4BV6c7DBdiG1RRQd+y1bvqRyYtPfMK85UM95vsapqQ==
 
-"@types/node@^11.9.5":
-  version "11.13.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.17.tgz#2e7efbfe5253561087812571e5e6a1e4b1d6295b"
-  integrity sha512-7W3kSMa8diVH6s24a8Qrmvwu+vG3ahOC/flMHFdWSdnPYoQI0yPO84h5zOWYXAha2Npn3Pw3SSuQSwBUfaniyQ==
+"@types/node@^12.7.2":
+  version "12.12.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.5.tgz#66103d2eddc543d44a04394abb7be52506d7f290"
+  integrity sha512-KEjODidV4XYUlJBF3XdjSH5FWoMCtO0utnhtdLf1AgeuZLOrRbvmU/gaRCVg7ZaQDjVf3l84egiY0mRNe5xE4A==
 
 "@types/ramda@^0.25.44":
   version "0.25.51"
@@ -771,18 +771,6 @@ assertion-error@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
   integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
-
-assertron@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/assertron/-/assertron-6.1.0.tgz#0930c5218ea95183cafe9c4589f35d1a59707b4f"
-  integrity sha512-/obpEDVhtU4znjhKn8kG6gPZ3n9DMG2XSmroQQmAbOHvZ9yfCtLKIS0vGxYxa3iAM32agRKQjqzuZO6L+dwRYg==
-  dependencies:
-    assertion-error "^1.1.0"
-    is-node "^1.0.2"
-    is-promise "^2.1.0"
-    path-equal "^1.1.1"
-    satisfier "^4.5.1"
-    tersify "^1.2.6"
 
 assertron@^7.1.0:
   version "7.1.2"
@@ -1144,7 +1132,7 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clibuilder@^4.2.4, clibuilder@^4.3.0:
+clibuilder@^4.3.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/clibuilder/-/clibuilder-4.3.2.tgz#86d78b28cc1a0455af80ef7fb3c07aceb587dd8b"
   integrity sha512-BS7mVFUkNr5Xs95TSd5EAzFIe15FqUOgFW1NFD42QSFo26Kw7NP4tJWnxFKDNnCPk8AGraHYdyF0uLKS8a1oEw==
@@ -4466,13 +4454,6 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-satisfier@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/satisfier/-/satisfier-4.5.1.tgz#4cab4e08b3a9b74a417db8f5aba938e7fb3ccbb3"
-  integrity sha512-JrwJ/Ilrukrrnu5cYAzZOp/SqOCyU07WPr0UNJzPy9eL86XoU2Rx/BzvdVanku1Klj2NwhxTIa4g7S56yY7yqQ==
-  dependencies:
-    tersify "^1.2.6"
-
 satisfier@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/satisfier/-/satisfier-5.0.2.tgz#8b102a860b9a8b756f2f841a5b31f022325e36b4"
@@ -4856,13 +4837,6 @@ term-size@^1.2.0:
   integrity sha1-RYuDiH8oj8Vtb/+/rSYuJmOO+mk=
   dependencies:
     execa "^0.7.0"
-
-tersify@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tersify/-/tersify-1.2.6.tgz#05788b03504b78198a329119cbb14d02fd248f80"
-  integrity sha512-MU0uxPzyD+Syo4PLMB8IiaGroQdfk3iFGvoYS6fceKeD4Wj+UsNEmvJoGupP1nB19/HtWAE1AbNI0mZaU7eyKg==
-  dependencies:
-    unpartial "^0.4.1"
 
 tersify@^3.0.0, tersify@^3.0.1:
   version "3.0.3"
