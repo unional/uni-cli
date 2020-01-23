@@ -32,7 +32,7 @@
     "watch": "jest --watch"
   },
   "dependencies": {
-    "clibuilder": "^4.4.3",
+    "clibuilder": "^6.1.9",
     "find-installed-packages": "^2.0.0",
     "find-up": "^3.0.0",
     "jest-junit": "^6.0.0",
