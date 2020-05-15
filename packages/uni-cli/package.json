@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@types/find-up": "^2.1.1",
-    "@types/ncp": "^2.0.1",
+    "@types/ncp": "^2.0.4",
     "@types/ramda": "^0.25.44",
     "@types/tmp": "^0.0.33",
     "@types/update-notifier": "^2.5.0",
